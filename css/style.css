@@ -1,3 +1,22 @@
+:root {
+  --colorDefolt: rgba(0, 0, 0, 1);
+  --backDefolt:rgba(231, 231, 230, 1);
+  --backHeader: rgba(173, 173, 173, 1);
+  --backMajor: rgba(253, 199, 13, 1);
+}
+:root a {
+  text-decoration: none;
+  color: var(--colorDefolt);
+}
+:root input {
+  outline: none;
+  border: none;
+}
+:root input:active, :root input:hover, :root input:focus {
+  outline: 0;
+  outline-offset: 0;
+}
+
 html {
   width: 100%;
   height: 100%;
@@ -9,7 +28,7 @@ body {
 }
 @media (min-width: 200px) {
   body {
-    width: 230px;
+    width: 320px;
   }
 }
 @media (min-width: 640px) {
@@ -30,7 +49,7 @@ body {
 }
 
 header {
-  background-color: rgb(173, 173, 173);
+  background-color: var(--backHeader);
   height: 330px;
 }
 @media (min-width: 200px) {
@@ -51,12 +70,262 @@ header {
 header .nav-block {
   flex: 1 1 200px;
   padding-top: 40px;
+  height: 100%;
+}
+@media (min-width: 200px) {
+  header .nav-block {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media (min-width: 640px) {
+  header .nav-block {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+@media (min-width: 1200px) {
+  header .nav-block {
+    padding-left: 130px;
+    padding-right: 130px;
+  }
 }
 header .nav-block__content {
-  background-color: rgb(255, 198, 0);
+  background-color: var(--backMajor);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  border: 5px solid var(--backMajor);
+  border-radius: 50px;
+  position: relative;
+  z-index: 50;
+}
+header .nav-block__logo {
+  flex: 0 0 87px;
+  height: 70px;
+  background-color: white;
+  background-image: url(../img/logo.png);
+  background-repeat: no-repeat;
+  background-size: 70px;
+  background-position: center;
+  cursor: pointer;
+}
+header .nav-block__logo a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+@media (min-width: 200px) {
+  header .nav-block__logo {
+    flex: 0 0 70px;
+    height: 70px;
+    border-radius: 35px;
+    background-size: 60px;
+  }
+}
+@media (min-width: 1200px) {
+  header .nav-block__logo {
+    flex: 0 0 87px;
+    height: 87px;
+    border-radius: 43px;
+    background-size: 70px;
+  }
+}
+header .nav-block__menu {
+  flex: 1 1 200px;
+  height: 85px;
+  display: flex;
+  justify-content: space-around;
+}
+header .nav-block__menu .nav {
+  display: none;
+  height: 100%;
+}
+header .nav-block__menu .nav--border-bottom {
+  border-bottom: 2px solid var(--colorDefolt);
+  margin-left: 0%;
+}
+header .nav-block__menu .nav--border-top {
+  border-top: 2px solid var(--colorDefolt);
+  margin-left: 100%;
+}
+@media (min-width: 200px) {
+  header .nav-block__menu .nav {
+    display: none;
+  }
+}
+@media (min-width: 640px) {
+  header .nav-block__menu .nav {
+    display: none;
+  }
+}
+@media (min-width: 1200px) {
+  header .nav-block__menu .nav {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+}
+header .nav-block__menu .nav a {
+  padding-top: 20px;
+  display: block;
+  line-height: 15px;
+  height: 100%;
+  cursor: pointer;
+}
+header .nav-block__menu .nav a span {
+  display: block;
+  height: 10px;
+  transition: all 0.5s;
+  width: 0px;
+}
+header .nav-block__menu .nav a:hover > .nav--border-bottom {
+  width: 100%;
+  margin-left: 0%;
+}
+header .nav-block__menu .nav a:hover > .nav--border-top {
+  margin-left: 0%;
+  width: 100%;
+}
+header .nav-block__search {
+  flex: 0 0 87px;
+  height: 70px;
+  background-color: white;
+  background-repeat: no-repeat;
+  border-radius: 35px;
+  background-position: center;
+}
+@media (min-width: 200px) {
+  header .nav-block__search {
+    display: none;
+  }
+}
+@media (min-width: 1200px) {
+  header .nav-block__search {
+    display: block;
+    flex: 0 0 87px;
+    height: 87px;
+    border-radius: 43px;
+    background-size: 40px;
+    background-image: url("../img/search.png");
+    cursor: pointer;
+  }
+}
+header .nav-block__search:hover > .nav-block__input-box {
+  display: block;
+}
+header .nav-block__input-box {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--backDefolt);
+  border: 2px solid var(--backMajor);
+  border-radius: 52px;
+  background-image: url("../img/search.png");
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: 875px 22px;
+  transition: width 0.5s;
+}
+header .nav-block__input-box input {
+  position: relative;
+  top: 30px;
+  left: 25px;
+  width: 750px;
+  background-color: var(--backDefolt);
+  border-bottom: 1px solid var(--backHeader);
+  border-radius: 25px;
+  padding-left: 15px;
+  line-height: 25px;
+}
+header .nav-block__burger {
+  flex: 0 0 87px;
+  height: 70px;
+  background-color: white;
+  background-image: url("../img/menu.svg");
+  background-repeat: no-repeat;
+  border-radius: 35px;
+  background-position: center;
+}
+@media (min-width: 200px) {
+  header .nav-block__burger {
+    flex: 0 0 70px;
+    height: 70px;
+    background-image: url("../img/menu.svg");
+    border-radius: 35px;
+    background-size: 30px;
+    cursor: pointer;
+  }
+}
+@media (min-width: 1200px) {
+  header .nav-block__burger {
+    display: none;
+  }
+}
+header .nav-block__burger .nav-mobile {
+  position: absolute;
+  left: 0;
+  top: 20px;
+  padding-top: 0px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 25px;
+  width: calc(100% - 50px);
+  flex-direction: column;
+  align-items: center;
+  gap: 0px;
+  height: 0px;
+  background-color: var(--backMajor);
+  border-radius: 52px;
+  z-index: -25;
+  display: flex;
+  text-align: center;
+  transition: all 0.5s;
+}
+@media (min-width: 200px) {
+  header .nav-block__burger .nav-mobile {
+    display: flex;
+  }
+}
+@media (min-width: 640px) {
+  header .nav-block__burger .nav-mobile {
+    display: flex;
+  }
+}
+@media (min-width: 1200px) {
+  header .nav-block__burger .nav-mobile {
+    display: none;
+  }
+}
+header .nav-block__burger .nav-mobile a {
+  position: relative;
+  flex: 0 0 0px;
+  width: 280px;
+  color: rgba(0, 0, 0, 0);
+  border-bottom: 2px solid var(rgba(0, 0, 0, 0));
+  line-height: 0px;
+  transition: all 0.5s;
+}
+header .nav-block__burger:hover > .nav-mobile {
+  height: 320px;
+  padding-top: 150px;
+  gap: 25px;
+}
+header .nav-block__burger:hover > .nav-mobile a {
+  color: var(--colorDefolt);
+  border-bottom: 2px solid var(--colorDefolt);
+  line-height: 35px;
+  flex: 0 0 35px;
 }
 header .bottom-background {
-  background-color: rgb(231, 231, 230);
+  background-color: var(--backDefolt);
   flex: 0 0 20px;
   width: 100%;
   border-radius: 50px 50px 0 0;
