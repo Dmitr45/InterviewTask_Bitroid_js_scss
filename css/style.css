@@ -95,7 +95,7 @@ header .nav-block__content {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 5px;
   justify-content: space-around;
   align-items: center;
   width: 100%;
@@ -192,7 +192,6 @@ header .nav-block__menu .nav a:hover > .nav--border-top {
   width: 100%;
 }
 header .nav-block__search {
-  flex: 0 0 87px;
   height: 70px;
   background-color: white;
   background-repeat: no-repeat;
@@ -201,7 +200,8 @@ header .nav-block__search {
 }
 @media (min-width: 200px) {
   header .nav-block__search {
-    display: none;
+    display: block;
+    flex: 1 0 330px;
   }
 }
 @media (min-width: 1200px) {
@@ -220,13 +220,10 @@ header .nav-block__search:hover > .nav-block__input-box {
 }
 header .nav-block__input-box {
   display: none;
-  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--backDefolt);
-  border: 2px solid var(--backMajor);
   border-radius: 52px;
   background-image: url("../img/search.png");
   background-size: 40px;
@@ -234,16 +231,58 @@ header .nav-block__input-box {
   background-position: 875px 22px;
   transition: width 0.5s;
 }
+@media (min-width: 200px) {
+  header .nav-block__input-box {
+    flex: 1 0 330px;
+    display: block;
+    position: static;
+    background-color: var(#fff);
+    border: 2px solid var(--backMajor);
+  }
+}
+@media (min-width: 1200px) {
+  header .nav-block__input-box {
+    display: none;
+    position: absolute;
+    background-color: var(--backDefolt);
+    border: 2px solid var(--backMajor);
+  }
+}
 header .nav-block__input-box input {
   position: relative;
-  top: 30px;
-  left: 25px;
-  width: 750px;
-  background-color: var(--backDefolt);
-  border-bottom: 1px solid var(--backHeader);
-  border-radius: 25px;
-  padding-left: 15px;
-  line-height: 25px;
+}
+@media (min-width: 200px) {
+  header .nav-block__input-box input {
+    width: calc(100% - 30px);
+    height: 41.6px;
+    padding: 13px;
+    left: 15px;
+    background-color: var(--backDefolt);
+    border-bottom: 1px solid var(--backHeader);
+    border-radius: 22.4px;
+  }
+}
+@media (min-width: 640px) {
+  header .nav-block__input-box input {
+    width: calc(100% - 30px);
+    height: 41.6px;
+    padding: 13px;
+    left: 15px;
+    background-color: var(--backDefolt);
+    border-bottom: 1px solid var(--backHeader);
+    border-radius: 22.4px;
+  }
+}
+@media (min-width: 1200px) {
+  header .nav-block__input-box input {
+    width: 750px;
+    top: 30px;
+    background-color: var(--backDefolt);
+    border-bottom: 1px solid var(--backHeader);
+    border-radius: 25px;
+    padding-left: 15px;
+    line-height: 25px;
+  }
 }
 header .nav-block__burger {
   flex: 0 0 87px;
